@@ -1,20 +1,21 @@
 <template>
-  <div id="app">
-<header>
-  <nav>
-    <ul>
-      <li class="nav-item">
-        <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo">
-        Build-a-Bot
-      </li>
-    </ul>
-  </nav>
-</header>
-    <main>
-      <RobotBuilder />
-    </main>
+    <div id="app">
+        <header>
+          <nav>
+            <ul>
+              <li class="nav-item">
+                <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo">
+                Build-a-Bot
+              </li>
+            </ul>
+          </nav>
+        </header>
 
-  </div>
+        <main>
+
+            <RobotBuilder/>
+        </main>
+    </div>
 </template>
 
 <script>
@@ -28,12 +29,16 @@ export default {
   }
 }
 </script>
-
 <style>
   body{
     background: linear-gradient(to bottom, #555,#999) fixed;
     /*background-attachment: fixed;*/
   }
+</style>
+<style scoped>
+  /*.content  .robot-name{color:red;*/
+  /*border:2px solid blue;}*/
+
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
