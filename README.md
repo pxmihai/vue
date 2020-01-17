@@ -1,3 +1,11 @@
+vue project 3
+vue buy robot 
+vuejs fundamentals https://github.com/jmcooper/
+
+vuejs-fundamentals is part 5 in Learning VueJS Path
+etc
+
+
 # vue
 
 ## Project setup
