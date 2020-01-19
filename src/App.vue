@@ -5,14 +5,14 @@
             <ul>
               <li class="nav-item">
 <!--                  <router-link to="/">-->
-                  <router-link class="nav-link" :to="{name:'Home'}" exact>
+                  <router-link  active-class="iChanged" class="nav-link" :to="{name:'Home'}" exact>
                       <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo"> Build-a-Bot
                   </router-link>
 
 
               </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" :to="{name:'Build'}" exact>
+                <li class="nav-item"  >
+                    <router-link  active-class="iChanged" class="nav-link" :to="{name:'Build'}" exact>
                       Build
                     </router-link>
 
@@ -87,7 +87,9 @@ export default {
         text-decoration:none;
         color:inherit;
     }
-    .router-link-active{
-        color:white;
+    /*.router-link-active{*/
+  .iChanged{
+        color:tomato;
     }
+/*    never used warning but used by router */
 </style>
