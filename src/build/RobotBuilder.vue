@@ -2,19 +2,26 @@
     <div class="content">
 
         <div class="preview">
-            <div class="preview-content">
-                <div class="top-row">
-                    <img :src="selectedRobot.head.src"/>
+            <CollapsibleSection>
+            </CollapsibleSection>
+            <CollapsibleSection>
+                        foo
+            </CollapsibleSection>
+            <CollapsibleSection>
+                <div class="preview-content">
+                    <div class="top-row">
+                        <img :src="selectedRobot.head.src"/>
+                    </div>
+                    <div class="middle-row">
+                        <img :src="selectedRobot.leftArm.src" class="rotate-left"/>
+                        <img :src="selectedRobot.torso.src"/>
+                        <img :src="selectedRobot.rightArm.src" class="rotate-right"/>
+                    </div>
+                    <div class="bottom-row">
+                        <img :src="selectedRobot.base.src"/>
+                    </div>
                 </div>
-                <div class="middle-row">
-                    <img :src="selectedRobot.leftArm.src" class="rotate-left"/>
-                    <img :src="selectedRobot.torso.src"/>
-                    <img :src="selectedRobot.rightArm.src" class="rotate-right"/>
-                </div>
-                <div class="bottom-row">
-                    <img :src="selectedRobot.base.src"/>
-                </div>
-            </div>
+            </CollapsibleSection>
             <button class="add-to-cart" @click="addToCart()" >Add to cart</button>
         </div>
 
@@ -102,8 +109,7 @@
     import availableParts from '../data/parts';
     import createdHookMixin from './created-hook-mixin';
     import PartSelector from "@/build/PartSelector";
-
-
+    import CollapsibleSection from "@/shared/CollapsibleSection";
 
     // function getPreviousValidIndex(index, length) {
     //     const deprecatedIndex = index - 1;
@@ -117,7 +123,7 @@
 
     export default {
         name:'RobotBuilder',
-        components:{PartSelector},
+        components:{PartSelector, CollapsibleSection},
         data(){
             return {
                 availableParts,
