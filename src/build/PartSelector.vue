@@ -45,6 +45,11 @@
                 return this.parts[this.selectedPartIndex];
             },
         },
+        updated(){
+            this.emitSelectedPart();
+        },
+        // this shows as not used, but it is used, why?
+        // do lifecycle hooks run all 4 stages cmud
         created(){
             this.emitSelectedPart();
         },
@@ -57,14 +62,14 @@
                     this.selectedPartIndex,
                     this.parts.length,
                 );
-                this.emitSelectedPart();
+                // this.emitSelectedPart();
             },
             selectPreviousPart() {
                 this.selectedPartIndex = getPreviousValidIndex(
                     this.selectedPartIndex,
                     this.parts.length,
                 );
-                this.emitSelectedPart();
+                // this.emitSelectedPart();
             },
 
         },

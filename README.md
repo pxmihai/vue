@@ -1,32 +1,10 @@
-vue project 3
-vue buy robot 
-vuejs fundamentals https://github.com/jmcooper/
+### vue project no.3
+"build a bot" vue
+vuejs fundamentals 
+    https://www.pluralsight.com/courses/vuejs-fundamentals
+    https://github.com/jmcooper/vuejs-fundamentals
 
-vuejs-fundamentals is part 5 in Learning VueJS Path
+###vuejs-fundamentals
+ as part 5 in "Learning VueJS Path"/pluralsight
 etc
 
-
-# vue
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
