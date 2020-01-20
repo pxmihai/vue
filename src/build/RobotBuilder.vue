@@ -123,10 +123,24 @@
 
     export default {
         name:'RobotBuilder',
+        beforeRouteLeave(to,from,next) {
+                //if RouteEnter, the page will not even load
+                // because there is nothing in the something that is only after loading
+                if (this.addedToCart){
+                    next(true);
+                }else{
+                        const response = confirm(
+                            'You have not added your robot ' +
+                            'to your cart and all progress will be lost!');
+                        next(response);
+                }
+        },
         components:{PartSelector, CollapsibleSection},
         data(){
             return {
                 availableParts,
+                addedToCart:false,
+                /*why was this function added here? track*/
                 cart: [],
                 selectedRobot:{
                     head:{},
@@ -178,6 +192,7 @@
                         robot.rightArm.cost+
                         robot.base.cost;
                 this.cart.push(Object.assign({},robot,{cost} ));
+                this.addedToCart=true;
             },
             // selectNextHead() {
             //     this.selectedHeadIndex =
