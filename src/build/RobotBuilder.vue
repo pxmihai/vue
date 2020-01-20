@@ -1,6 +1,5 @@
 <template>
     <div class="content">
-
         <div class="preview">
             <CollapsibleSection>
             </CollapsibleSection>
@@ -84,23 +83,23 @@
                           @partSelected="part => selectedRobot.base=part"/>
 
         </div>
-        <h1>Cart</h1>
-        <table>
-            <thead>
-                <tr>
-                   <th>Robot</th>
-                   <th class="cost"> Cost</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(robot, index) in cart" :key="index">
-                    <td>{{robot.head.title}}</td>
-                    <td class="cost">{{robot.cost}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-
+<!--        <div>-->
+<!--            <h1>Cart</h1>-->
+<!--            <table>-->
+<!--                <thead>-->
+<!--                    <tr>-->
+<!--                       <th>Robot</th>-->
+<!--                       <th class="cost"> Cost</th>-->
+<!--                    </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                    <tr v-for="(robot, index) in cart" :key="index">-->
+<!--                        <td>{{robot.head.title}}</td>-->
+<!--                        <td class="cost">{{robot.cost}}</td>-->
+<!--                    </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--       </div>-->
     </div>
 </template>
 
@@ -186,12 +185,15 @@
         methods: {
             addToCart(){
                 const robot=this.selectedRobot;
-                const cost=robot.head.cost+
-                        robot.leftArm.cost+
-                        robot.torso.cost+
-                        robot.rightArm.cost+
-                        robot.base.cost;
-                this.cart.push(Object.assign({},robot,{cost} ));
+                const cost= robot.head.cost+
+                            robot.leftArm.cost+
+                            robot.torso.cost+
+                            robot.rightArm.cost+
+                            robot.base.cost;
+                this.$store.commit('addRobotToCart', Object.assign({},
+                    robot,{cost} ));
+                //the global view instance is aware of the store and made available to the components
+                // this.cart.push(Object.assign({},robot,{cost} ));
                 this.addedToCart=true;
             },
             // selectNextHead() {
@@ -380,13 +382,13 @@
         padding:3px;
         font-size:16px;
     }
-    td,th{
-        text-align:left;
-        padding:5px 20px;
-    }
-    .cost{
-        text-align:right;
-    }
+    /*td,th{*/
+    /*    text-align:left;*/
+    /*    padding:5px 20px;*/
+    /*}*/
+    /*.cost{*/
+    /*    text-align:right;*/
+    /*}*/
     .sale-border{
         border:3px solid green;
     }

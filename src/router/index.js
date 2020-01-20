@@ -11,6 +11,7 @@ import RobotTorsos from "@/parts/RobotTorsos.vue";
 import RobotBases from "@/parts/RobotBases.vue";
 import SidebarStandard from "@/sidebars/SidebarStandard";
 import SidebarBuild from "@/sidebars/SidebarBuild";
+import ShoppingCart from "@/cart/ShoppingCart";
 
 Vue.use(Router);
 
@@ -67,6 +68,12 @@ export default new Router({
             props instead of route params */
          beforeEnter(to, from,next){
             const isValidId =Number.isInteger(Number(to.params.id) );
-            next(isValidId);},
-    }],
+            next(isValidId);
+            },
+    },{
+        path:'/cart',
+        //typo here  without the / == loads of debug
+        name:'Cart',
+        component:ShoppingCart,
+        }],
 });
