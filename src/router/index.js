@@ -19,5 +19,7 @@ export default new Router({
         path:'/parts/:partType/:id',
         name:'Parts',
         component:PartInfo,
+        props:true,/*why does this work like this*/
+/*passes teh params that it identifies as rout as props instead of route params */
     }],
 });
