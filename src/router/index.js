@@ -60,6 +60,11 @@ export default new Router({
         name:'Parts',
         component:PartInfo,
         props:true,/*why does this work like this*/
-/*passes teh params that it identifies as rout as props instead of route params */
+            /*passes teh params that it
+            identifies as rout as
+            props instead of route params */
+         beforeEnter(to, from,next){
+            const isValidId =Number.isInteger(Number(to.params.id) );
+            next(isValidId);},
     }],
 });

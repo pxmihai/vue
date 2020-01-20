@@ -4,6 +4,7 @@
                     name:'Parts',
                     params:{
                         id:this.selectedPart.id,
+                        // id:'foo', will not work anymore. because of the guard route
                         partType:this.selectedPart.type,
                     }}">
             <img   :src="selectedPart.src" title="arm"/>
