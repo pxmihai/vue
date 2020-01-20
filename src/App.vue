@@ -12,21 +12,27 @@
 
               </li>
                 <li class="nav-item"  >
-                    <router-link  active-class="iChanged" class="nav-link" :to="{name:'Build'}" exact>
+                    <router-link  active-class="iChanged" class="nav-link" :to="{name:'Build'}"
+                                  exact>
                       Build
                     </router-link>
-
-
                 </li>
             </ul>
           </nav>
         </header>
+        <div class="container">
+            <aside class="aside">
+                <router-view name="sidebar"/>
+            </aside>
+                <main>
+                    <!--            <RobotBuilder/>-->
+                    <router-view/>
+                </main>
 
-        <main>
+        </div>
 
-<!--            <RobotBuilder/>-->
-            <router-view/>
-        </main>
+
+
 
     </div>
 </template>
@@ -57,16 +63,18 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
   main{
-    margin:0 auto;
+    /*margin:0 auto;*/
     padding:30px;
     background-color:white;
-    width:1024px;
+    /*width:1024px;*/
+      width:964px;
     min-height:300px;
 
   }
   header{
     background-color:#999;
-    width:1048px;
+    /*width:1048px;*/
+      width:1148px;
     margin:0 auto;
   }
   ul{
@@ -91,5 +99,15 @@ export default {
   .iChanged{
         color:tomato;
     }
-/*    never used warning but used by router */
+/*    "never used" warning but used by router */
+    .container{
+        display:flex;
+        margin:10px auto 0 auto;
+        justify-content: center;
+    }
+    .aside {
+        padding:30px;
+        background-color: #aaa;
+        width:100px;
+        min-height:300px;}
 </style>
