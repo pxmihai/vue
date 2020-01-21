@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div v-if="availableParts" class="content">
         <div class="preview">
             <CollapsibleSection>
             </CollapsibleSection>
@@ -105,7 +105,7 @@
 
 <script>
 
-    import availableParts from '../data/parts';
+    // import availableParts from '../data/parts';
     import createdHookMixin from './created-hook-mixin';
     import PartSelector from "@/build/PartSelector";
     import CollapsibleSection from "@/shared/CollapsibleSection";
@@ -122,22 +122,26 @@
 
     export default {
         name:'RobotBuilder',
+        created(){
+            this.$store.dispatch('getParts');
+        }
+        ,
         beforeRouteLeave(to,from,next) {
-                //if RouteEnter, the page will not even load
-                // because there is nothing in the something that is only after loading
-                if (this.addedToCart){
-                    next(true);
-                }else{
-                        const response = confirm(
-                            'You have not added your robot ' +
-                            'to your cart and all progress will be lost!');
-                        next(response);
-                }
+            //if RouteEnter, the page will not even load
+            // because there is nothing in the something that is only after loading
+            if (this.addedToCart){
+                next(true);
+            }else{
+                const response = confirm(
+                    'You have not added your robot ' +
+                    'to your cart and all progress will be lost!');
+                next(response);
+            }
         },
         components:{PartSelector, CollapsibleSection},
         data(){
             return {
-                availableParts,
+                // availableParts,
                 addedToCart:false,
                 /*why was this function added here? track*/
                 cart: [],
@@ -157,6 +161,9 @@
         },
         mixins:[createdHookMixin],
         computed:{
+            availableParts(){
+                return this.$store.state.parts;
+            },
             saleBorderClass(){
                 return this.selectedRobot.head.onSale ? 'sale-border': '';
             },
@@ -186,10 +193,10 @@
             addToCart(){
                 const robot=this.selectedRobot;
                 const cost= robot.head.cost+
-                            robot.leftArm.cost+
-                            robot.torso.cost+
-                            robot.rightArm.cost+
-                            robot.base.cost;
+                    robot.leftArm.cost+
+                    robot.torso.cost+
+                    robot.rightArm.cost+
+                    robot.base.cost;
                 this.$store.commit('addRobotToCart', Object.assign({},
                     robot,{cost} ));
                 //the global view instance is aware of the store and made available to the components
@@ -280,7 +287,7 @@
     }
     .part {
         img {
-        width:165px;
+            width:165px;
         }
     }
     .top-row {

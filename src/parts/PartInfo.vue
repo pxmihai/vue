@@ -1,14 +1,16 @@
 <template>
   <div>
-      <hi>{{part.title}}</hi>
+      <h1>{{part.title}}</h1>
       <div>{{part.description}}</div>
   </div>
 </template>
 
 <script>
-    import parts from  '../data/parts'
+    // import parts from  '../data/parts'
+    import getPartsMixin from './get-parts-mixin';
     export default {
         name: "PartInfo",
+        mixins: [getPartsMixin],
         // props:['partType','id'],
         props:{
             partType:{type:String},
@@ -24,7 +26,7 @@
                 // const {partType, id}= this.$route.params;
                 const{partType, id}=this;
                 /*decoupled compoent from the route*/
-                return parts[partType].find(part=> part.id===+id);/*cast to number*/
+                return this.parts[partType].find(part=> part.id===+id);/*cast to number*/
                     // title:'Part Title',
                     // description:'Part Description',
 
