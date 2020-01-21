@@ -197,8 +197,10 @@
                     robot.torso.cost+
                     robot.rightArm.cost+
                     robot.base.cost;
-                this.$store.commit('addRobotToCart', Object.assign({},
+                this.$store.dispatch('addRobotToCart', Object.assign({},
                     robot,{cost} ));
+                // dispatch instead of commit 2:32 51 add robot to cart action instead of calling the mutation
+                //commit mutations vs dispatch actions
                 //the global view instance is aware of the store and made available to the components
                 // this.cart.push(Object.assign({},robot,{cost} ));
                 this.addedToCart=true;
