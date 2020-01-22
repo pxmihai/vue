@@ -26,10 +26,10 @@ export default new Vuex.Store({
     },
     addRobotToCart({commit,state},robot){
       const cart=[...state.cart,robot];
-      axios.post('/api/cart',cart).then( ()=>commit('addRobotToCart',robot));
+      return axios.post('/api/cart',cart).then( ()=>commit('addRobotToCart',robot));
       //  add to local state, add a then so axio post returns a promise anonymous then call the
       //  addtocart mutation to add the robot to the cart, with commit anonymous function
-    }
+    },
   //
   }
   ,

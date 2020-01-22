@@ -198,7 +198,9 @@
                     robot.rightArm.cost+
                     robot.base.cost;
                 this.$store.dispatch('addRobotToCart', Object.assign({},
-                    robot,{cost} ));
+                    robot,{cost} ))
+                .then( ()=>this.$router.push('/cart') );
+                //after adding to the cart, then. moves the view to the cart
                 // dispatch instead of commit 2:32 51 add robot to cart action instead of calling the mutation
                 //commit mutations vs dispatch actions
                 //the global view instance is aware of the store and made available to the components
