@@ -47,7 +47,8 @@ export default {
   name: 'app',
     computed:{
       cart(){
-          return this.$store.state.cart;
+          return this.$store.state.robots.cart;
+          //added .robots because robots is the name of the module in store/index.js
       },
     },
   // components: {
