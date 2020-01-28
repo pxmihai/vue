@@ -4,7 +4,7 @@ export default{
 },
     computed:{
         parts(){
-            return this.$store.state.parts || {
+            return this.$store.state.fruit.parts || {
                 heads: [], arms: [], torsos: [], bases: [],
             };
         },

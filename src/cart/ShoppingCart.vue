@@ -54,7 +54,7 @@
         name: 'Cart',
         computed:{
                     cart(){
-                        return this.$store.state.cart;
+                        return this.$store.state.fruit.cart;
                     },
                     cartSaleItems() {
                         return this.$store.getters.cartSaleItems;

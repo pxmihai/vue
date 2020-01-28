@@ -162,7 +162,7 @@
         mixins:[createdHookMixin],
         computed:{
             availableParts(){
-                return this.$store.state.parts;
+                return this.$store.state.fruit.parts;
             },
             saleBorderClass(){
                 return this.selectedRobot.head.onSale ? 'sale-border': '';

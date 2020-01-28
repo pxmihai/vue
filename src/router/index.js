@@ -20,7 +20,7 @@ export default new Router({
     routes: [{
         path: '/',
         name: 'Home',
-        // component: HomePage, from simple propertycomponent object to keyed object
+        // component: HomePage, from simple property component object to keyed object
         components:{
             default: HomePage,
             sidebar: SidebarStandard
@@ -63,7 +63,7 @@ export default new Router({
         component:PartInfo,
         props:true,
             /*why does this work like this*/
-            /*passes teh params that it
+            /*passes the params that it
             identifies as rout as
             props instead of route params */
          beforeEnter(to, from,next){
