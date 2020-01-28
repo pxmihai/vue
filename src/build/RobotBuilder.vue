@@ -197,7 +197,7 @@
                     robot.torso.cost+
                     robot.rightArm.cost+
                     robot.base.cost;
-                this.$store.dispatch('addRobotToCart', Object.assign({},
+                this.$store.dispatch('robots/addRobotToCart', Object.assign({},
                     robot,{cost} ))
                 .then( ()=>this.$router.push('/cart') );
                 //after adding to the cart, then. moves the view to the cart
