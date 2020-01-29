@@ -2,6 +2,7 @@ import axios from "axios";
 
 export default{
 //adding data to the store using mutations
+    namespaced:true,
     state:{
         cart:[],/*important to add a default value to everything that is added to the store.*/
             parts:null,

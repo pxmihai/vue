@@ -47,7 +47,7 @@ export default {
   name: 'app',
     computed:{
       cart(){
-          return  this.$store.state.fruit.cart;
+          return  this.$store.state.robots.cart;
       },
     },
   // components: {

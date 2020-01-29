@@ -109,6 +109,7 @@
     import createdHookMixin from './created-hook-mixin';
     import PartSelector from "@/build/PartSelector";
     import CollapsibleSection from "@/shared/CollapsibleSection";
+    // import fruit from '../store/modules/robots';
 
     // function getPreviousValidIndex(index, length) {
     //     const deprecatedIndex = index - 1;
@@ -123,7 +124,7 @@
     export default {
         name:'RobotBuilder',
         created(){
-            this.$store.dispatch('getParts');
+            this.$store.dispatch('robots/getParts');
         }
         ,
         beforeRouteLeave(to,from,next) {
@@ -162,7 +163,7 @@
         mixins:[createdHookMixin],
         computed:{
             availableParts(){
-                return this.$store.state.fruit.parts;
+                return this.$store.state.robots.parts;
             },
             saleBorderClass(){
                 return this.selectedRobot.head.onSale ? 'sale-border': '';
