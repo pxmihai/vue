@@ -104,7 +104,7 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
+    import {mapActions} from 'vuex'; /*, mapMutations*/
     // import availableParts from '../data/parts';
     import createdHookMixin from './created-hook-mixin';
     import PartSelector from "@/build/PartSelector";
@@ -193,6 +193,7 @@
         },
         methods: {
             ...mapActions('robots',['getParts','addRobotToCart']),
+            // ...mapMutations('robots',['someMutations']),
             addToCart(){
                 const robot=this.selectedRobot;
                 const cost= robot.head.cost+
@@ -202,7 +203,7 @@
                     robot.base.cost;
                 this.addRobotToCart( Object.assign({},
                 // this.$store.dispatch('robots/addRobotToCart', Object.assign({},
-                    //^ there are actions that will be mapped with mapactions
+                    //^ there are actions that will be mapped with mapActions
                     robot,{cost} ))
                 .then( ()=>this.$router.push('/cart') );
                 //after adding to the cart, then. moves the view to the cart
