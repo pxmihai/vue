@@ -1,11 +1,9 @@
 <template>
     <div v-if="availableParts" class="content">
         <div class="preview">
-            <CollapsibleSection>
-            </CollapsibleSection>
-            <CollapsibleSection>
-                        foo
-            </CollapsibleSection>
+<!--            <CollapsibleSection>-->
+<!--            </CollapsibleSection>-->
+
             <CollapsibleSection>
                 <div class="preview-content">
                     <div class="top-row">
