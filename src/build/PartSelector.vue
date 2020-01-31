@@ -1,7 +1,7 @@
 <template>
     <div class="part" :class="position" >
-        {{pinPadding}}
-        <router-link :to="{
+<!--        {{pinPadding}}-->
+        <router-link :to=" {
                     name:'Parts',
                     params:{
                         id:this.selectedPart.id,
