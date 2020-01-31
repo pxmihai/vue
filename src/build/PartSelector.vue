@@ -1,6 +1,5 @@
 <template>
     <div class="part" :class="position" >
-<!--        {{pinPadding}}-->
         <router-link :to=" {
                     name:'Parts',
                     params:{
@@ -23,7 +22,7 @@
 </template>
 
 <script>
-    import pinDirective from '../shared/pin-directive';
+    // import pinDirective from '../shared/pin-directive';
     // import availableParts from '../data/parts';
     // const parts = availableParts.heads;
 
@@ -39,8 +38,8 @@
 
     export default {
         directives:{
-            pin:pinDirective,
-        // we use v-pin because pin is the name of the directive created
+            // pin:pinDirective,
+        // we use v-pin b ecause pin is the name of the directive created
 
         },
         // props:['parts', 'position'],
