@@ -1,6 +1,6 @@
 ### vue project no.3
-"build a bot" vue
-vuejs fundamentals 
+##"build a bot" vue
+    vuejs fundamentals 
     https://www.pluralsight.com/courses/vuejs-fundamentals
     https://github.com/jmcooper/vuejs-fundamentals
 
