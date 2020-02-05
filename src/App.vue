@@ -1,20 +1,10 @@
 <template>
     <div id="app">
-<!--        Root Foo: {{rootFoo}} <br>-->
-<!--        Robots Foo {{robotsFoo}} <br>-->
-<!--        Users Foo {{usersFoo}} <br>-->
-<!--        <br>-->
-<!--        Root Getter Foo: {{rootGetterFoo}}<br>-->
-<!--        Robots Getter Foo: {{robotsGetterFoo}} <br>-->
-<!--        Users Getter Foo: {{usersGetterFoo}} <br>-->
-
-    <!--we need computed props for this^^, in script > computed: -->
-
         <header>
           <nav>
             <ul>
               <li class="nav-item">
-<!--                  <router-link to="/">-->
+
                   <router-link  active-class="iChanged" class="nav-link" :to="{name:'Home'}" exact>
                       <img class="logo" src="./assets/build-a-bot-logo.png" alt="logo"> Build-a-Bot
                   </router-link>
@@ -41,7 +31,7 @@
                 <router-view name="sidebar"/>
             </aside>
                 <main>
-                    <!--            <RobotBuilder/>-->
+
                     <router-view/>
                 </main>
         </div>
@@ -50,75 +40,45 @@
 </template>
 
 <script>
-// import HomePage from './home/HomePage.vue'
-// import RobotBuilder from "@/build/RobotBuilder";
+
 import {mapState,mapGetters} from 'vuex';
 
 export default {
     computed:{
-        // ...mapState({
-        //         rootFoo:'foo',
-        //         usersFoo:state =>state.users.foo,
-        //     }
-        // ),
         ...mapState('robots',{robotsFoo:'foo'}),
         ...mapGetters({rootGetterFoo:'foo'}),
         ...mapGetters({robotsGetterFoo:'foo'}),
-        // rootFoo(){
-        //     return this.$store.state.foo;
-        // },
-        // robotsFoo(){
-        //     return this.$store.state.robots.foo;
-        // },
-        // usersFoo(){
-        //     return this.$store.state.users.foo;
-        // },
 
-        // rootGetterFoo(){
-        //     return this.$store.getters.foo;
-        // },
-        // robotsGetterFoo(){
-        //     return this.$store.getters['robots/foo'];
-        // },
-        // usersGetterFoo(){
-        //     return this.$store.getters['users/foo'];
-        // },
         cart(){
             return  this.$store.state.robots.cart;
         },
     },
     name: 'app',
-  // components: {
-  //   RobotBuilder
-  // }
 }
 </script>
 <style>
   body{
     background: linear-gradient(to bottom, #555,#999) fixed;
-    /*background-attachment: fixed;*/
   }
 </style>
 <style scoped>
-  /*.content  .robot-name{color:red;*/
-  /*border:2px solid blue;}*/
+
 
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
   main{
-    /*margin:0 auto;*/
+
     padding:30px;
     background-color:white;
-    /*width:1024px;*/
       width:964px;
     min-height:300px;
 
   }
   header{
     background-color:#999;
-    /*width:1048px;*/
+
       width:1148px;
     margin:0 auto;
   }
@@ -145,7 +105,6 @@ export default {
         text-decoration: none;
         color: inherit;
     }
-    /*.router-link-active{*/
   .iChanged{
         color:tomato;
     }

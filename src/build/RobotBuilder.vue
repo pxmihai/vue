@@ -23,40 +23,14 @@
         </div>
 
         <div class="top-row">
-            <!--<editor-fold desc="Description">-->
-            <!--            <div  :class="[saleBorderClass,'top','part']">-->
-<!--                <div class="robot-name">-->
-<!--                    {{  selectedRobot.head.title }}&lt;!&ndash;interpolation&ndash;&gt;-->
-<!--                    <span v-show="selectedRobot.head.onSale" class="sale">Sale!</span>-->
-<!--                </div>-->
-<!--                <img :src="selectedRobot.head.src" title="head"/>-->
-<!--                <button @click="selectPreviousHead()" class="prev-selector">&#9668;</button>-->
-<!--                <button @click="selectNextHead()"  class="next-selector">&#9658;</button>-->
-<!--            </div>-->
-            <!--</editor-fold>-->
+
             <PartSelector :parts="availableParts.heads"
                           position="top"
                           @partSelected="part => selectedRobot.head=part"/>
 
         </div>
         <div class="middle-row">
-            <!--<editor-fold desc="Description">-->
-            <!--            <div class="left part">-->
-<!--                <img :src="selectedRobot.leftArm.src" title="left arm"/>-->
-<!--                <button @click="selectPreviousLeftArm()" class="prev-selector">&#9650;</button>-->
-<!--                <button @click="selectNextLeftArm()" class="next-selector">&#9660;</button>-->
-<!--            </div>-->
-<!--            <div class="center part">-->
-<!--                <img :src="selectedRobot.torso.src" title="torso"/>-->
-<!--                <button @click="selectPreviousTorso()" class="prev-selector">&#9668;</button>-->
-<!--                <button @click="selectNextTorso()" class="next-selector">&#9658;</button>-->
-<!--            </div>-->
-<!--            <div class="right part">-->
-<!--                <img :src="selectedRobot.rightArm.src" title="right arm"/>-->
-<!--                <button @click="selectPreviousRightArm()" class="prev-selector">&#9650;</button>-->
-<!--                <button @click="selectNextRightArm()" class="next-selector">&#9660;</button>-->
-<!--            </div>-->
-            <!--</editor-fold>-->
+
             <PartSelector :parts="availableParts.arms"
                           position="left"
                           @partSelected="part => selectedRobot.leftArm=part"/>
@@ -81,54 +55,27 @@
                           @partSelected="part => selectedRobot.base=part"/>
 
         </div>
-<!--        <div>-->
-<!--            <h1>Cart</h1>-->
-<!--            <table>-->
-<!--                <thead>-->
-<!--                    <tr>-->
-<!--                       <th>Robot</th>-->
-<!--                       <th class="cost"> Cost</th>-->
-<!--                    </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                    <tr v-for="(robot, index) in cart" :key="index">-->
-<!--                        <td>{{robot.head.title}}</td>-->
-<!--                        <td class="cost">{{robot.cost}}</td>-->
-<!--                    </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-<!--       </div>-->
+
     </div>
 </template>
 
 <script>
     import {mapActions} from 'vuex'; /*, mapMutations*/
-    // import availableParts from '../data/parts';
+
     import createdHookMixin from './created-hook-mixin';
     import PartSelector from "@/build/PartSelector";
     import CollapsibleSection from "@/shared/CollapsibleSection";
-    // import fruit from '../store/modules/robots';
 
-    // function getPreviousValidIndex(index, length) {
-    //     const deprecatedIndex = index - 1;
-    //     return deprecatedIndex < 0 ? length - 1 : deprecatedIndex;
-    // }
-    //
-    // function getNextValidIndex(index, length) {
-    //     const incrementedIndex = index + 1;
-    //     return incrementedIndex > length - 1 ? 0 : incrementedIndex;
-    // }
 
     export default {
         name:'RobotBuilder',
         created(){
-            // this.$store.dispatch('robots/getParts');
+
             this.getParts();
         }
         ,
         beforeRouteLeave(to,from,next) {
-            //if RouteEnter, the page will not even load
-            // because there is nothing in the something that is only after loading
+
             if (this.addedToCart){
                 next(true);
             }else{
@@ -143,7 +90,7 @@
             return {
                 // availableParts,
                 addedToCart:false,
-                /*why was this function added here? track*/
+
                 cart: [],
                 selectedRobot:{
                     head:{},
@@ -152,11 +99,7 @@
                     rightArm:{},
                     base:{},
                 },
-                // selectedHeadIndex:0,
-                // selectedLeftArmIndex:0,
-                // selectedTorsoIndex:0,
-                // selectedRightArmIndex:0,
-                // selectedBaseIndex:0,
+
             };
         },
         mixins:[createdHookMixin],
@@ -173,25 +116,11 @@
                         '3px solid #aaa',
                 };
             },
-            // selectedRobot(){
-            //     return{
-            //         // head:availableParts.heads[this.selectedHeadIndex],
-            //         // leftArm:availableParts.arms[this.selectedLeftArmIndex],
-            //         // torso:availableParts.torsos[this.selectedTorsoIndex],
-            //         // rightArm:availableParts.arms[this.selectedRightArmIndex],
-            //         // base:availableParts.bases[this.selectedBaseIndex],
-            //         head:{},
-            //         leftArm:{},
-            //         torso:{},
-            //         rightArm:{},
-            //         base:{},
-            //     };
-            //
-            // },
+
         },
         methods: {
             ...mapActions('robots',['getParts','addRobotToCart']),
-            // ...mapMutations('robots',['someMutations']),
+
             addToCart(){
                 const robot=this.selectedRobot;
                 const cost= robot.head.cost+
@@ -199,88 +128,14 @@
                     robot.torso.cost+
                     robot.rightArm.cost+
                     robot.base.cost;
-                this.addRobotToCart( Object.assign({},
-                // this.$store.dispatch('robots/addRobotToCart', Object.assign({},
-                    //^ there are actions that will be mapped with mapActions
+                this.addRobotToCart(Object.assign({},
+
                     robot,{cost} ))
                 .then( ()=>this.$router.push('/cart') );
-                //after adding to the cart, then. moves the view to the cart
-                // dispatch instead of commit 2:32 51 add robot to cart action instead of calling the mutation
-                //commit mutations vs dispatch actions
-                //the global view instance is aware of the store and made available to the components
-                // this.cart.push(Object.assign({},robot,{cost} ));
+
                 this.addedToCart=true;
             },
-            // selectNextHead() {
-            //     this.selectedHeadIndex =
-            //         getNextValidIndex(
-            //             this.selectedHeadIndex,
-            //             availableParts.heads.length,
-            //         );
-            // },
-            // selectPreviousHead() {
-            //     this.selectedHeadIndex =
-            //         getPreviousValidIndex(
-            //             this.selectedHeadIndex,
-            //             availableParts.heads.length,
-            //         );
-            // },
-            // selectNextLeftArm() {
-            //     this.selectedLeftArmIndex =
-            //         getNextValidIndex(
-            //             this.selectedLeftArmIndex,
-            //             availableParts.arms.length,
-            //         );
-            // },
-            // selectPreviousLeftArm() {
-            //     this.selectedLeftArmIndex =
-            //         getPreviousValidIndex(
-            //             this.selectedLeftArmIndex,
-            //             availableParts.arms.length,
-            //         );
-            // },
-            // selectNextTorso() {
-            //     this.selectedTorsoIndex =
-            //         getNextValidIndex(
-            //             this.selectedTorsoIndex,
-            //             availableParts.torsos.length,
-            //         );
-            // },
-            // selectPreviousTorso() {
-            //     this.selectedTorsoIndex =
-            //         getPreviousValidIndex(
-            //             this.selectedTorsoIndex,
-            //             availableParts.torsos.length,
-            //         );
-            // },
-            // selectNextRightArm() {
-            //     this.selectedRightArmIndex =
-            //         getNextValidIndex(
-            //             this.selectedRightArmIndex,
-            //             availableParts.arms.length,
-            //         );
-            // },
-            // selectPreviousRightArm() {
-            //     this.selectedRightArmIndex =
-            //         getPreviousValidIndex(
-            //             this.selectedRightArmIndex,
-            //             availableParts.arms.length,
-            //         );
-            // },
-            // selectNextBase() {
-            //     this.selectedBaseIndex =
-            //         getNextValidIndex(
-            //             this.selectedBaseIndex,
-            //             availableParts.bases.length,
-            //         );
-            // },
-            // selectPreviousBase() {
-            //     this.selectedBaseIndex =
-            //         getPreviousValidIndex(
-            //             this.selectedBaseIndex,
-            //             availableParts.bases.length,
-            //         );
-            // },
+
         },
     };
 </script>
@@ -391,19 +246,12 @@
     }
     .add-to-cart{
         position:absolute;
-        /*right:30px;*/
-        /*width:220px;*/
+
         width:210px;
         padding:3px;
         font-size:16px;
     }
-    /*td,th{*/
-    /*    text-align:left;*/
-    /*    padding:5px 20px;*/
-    /*}*/
-    /*.cost{*/
-    /*    text-align:right;*/
-    /*}*/
+
     .sale-border{
         border:3px solid green;
     }

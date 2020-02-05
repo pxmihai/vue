@@ -9,7 +9,7 @@ import currencyFilter from './shared/currency-filter';
 Vue.config.productionTip = false;
 Vue.directive('pin',pinDirective);
 //https://vuejs.org/v2/guide/custom-directive.html
-//made directive available globally
+
 Vue.filter('currency',currencyFilter);
 //https://vuejs.org/v2/guide/filters.html
 
@@ -18,4 +18,4 @@ new Vue({
   router,
   store,
 }).$mount('#app')
-//test
+

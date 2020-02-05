@@ -6,11 +6,11 @@
             <span v-if="!open" @click="open=!open" >&#x25BC;
                 Expand</span>
         </div>
-        <!--        toggleable -->
+
 
         <slot v-if="open">
             <div>Default Content</div>
-<!--    ^        vue spseciffic-->
+
         </slot>
     </div>
 

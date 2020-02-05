@@ -13,7 +13,7 @@ export default {
     getters: {
         foo(state,getters,rootState){
             return `users-getter/${rootState.foo}`;
-        //    prepends users getter, as opposite to robots and index etc
+
         },
     },
     actions: {

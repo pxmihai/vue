@@ -16,8 +16,6 @@
     export default {
         name: 'RobotHeads',
         mixins:[getPartsMixin],
-        // data() {
-        //     return { heads: parts.heads };
-        // },
+
     };
 </script>

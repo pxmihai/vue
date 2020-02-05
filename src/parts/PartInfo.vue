@@ -21,9 +21,7 @@
         },
         computed:{
             part(){
-                // const partType=this.$route.params.partType;
-                // const id=this.$route.params.id;
-                // const {partType, id}= this.$route.params;
+
                 const{partType, id}=this;
                 /*decoupled compoent from the route*/
                 return this.parts[partType].find(part=> part.id===+id);/*cast to number*/
@@ -34,13 +32,7 @@
 
             }
         },
-        // data(){
-        //     return{
-        //         part:{
-        //
-        //         },
-        //     };
-        // },
+
 };
 </script>
 

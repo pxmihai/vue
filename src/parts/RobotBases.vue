@@ -17,8 +17,6 @@
     export default {
         name: 'RobotBases',
         mixins:[getPartsMixin],
-        // data() {
-        //     return { bases: parts.bases };
-        // },
+
     };
 </script>
