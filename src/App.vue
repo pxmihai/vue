@@ -31,7 +31,6 @@
                 <router-view name="sidebar"/>
             </aside>
                 <main>
-
                     <router-view/>
                 </main>
         </div>

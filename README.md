@@ -1,5 +1,7 @@
+-#### https://www.pluralsight.com/paths/vue
+
 -### vue project no.3 "build a bot" vue
- Project is based on 
+ The project is based on 
     
     https://github.com/jmcooper/vuejs-fundamentals
 
